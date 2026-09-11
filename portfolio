@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay V | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef6fc;
+            color: #123d70;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            width: 95%;
+            margin: 12px auto;
+            background: #08417f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            color: #ffc400;
+            font-size: 38px;
+            margin-bottom: 4px;
+        }
+
+        .header p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        .portfolio-nav {
+            width: 95%;
+            margin: 0 auto 12px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 6px;
+        }
+
+        .portfolio-nav a {
+            text-decoration: none;
+            color: #073d78;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .portfolio-nav a:hover,
+        .portfolio-nav a.active {
+            color: #0b58a8;
+            border-bottom: 3px solid #ffc400;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            width: 95%;
+            margin: auto;
+            background: #fafdff;
+            border-top: 3px solid #f8c600;
+            border-radius: 7px;
+            padding: 10px 22px;
+        }
+
+        .about h2 {
+            font-size: 27px;
+            margin-bottom: 8px;
+            color: #123e74;
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .education {
+            width: 95%;
+            margin: 12px auto 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .education-card {
+            background: #084b91;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .education-icon {
+            font-size: 28px;
+            color: #ffca05;
+        }
+
+        .education-card h3 {
+            color: #ffc400;
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .education-card p {
+            font-size: 15px;
+        }
+
+        /* ================= SOCIAL SECTION ================= */
+
+        .social {
+            width: 100%;
+            background: #f8fcff;
+            border-top: 1px solid #dbe7f0;
+            display: grid;
+            grid-template-columns: 280px minmax(400px, 800px) 380px;
+            justify-content: center;
+        }
+
+        /* ================= LEFT SIDEBAR ================= */
+
+        .sidebar {
+            min-height: 470px;
+            border-right: 1px solid #dce7ef;
+            padding: 15px 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #063f7e;
+            margin: 0 12px 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            margin: 3px 0;
+            border-radius: 25px;
+            font-size: 17px;
+            color: #123f76;
+        }
+
+        .menu-item:hover,
+        .menu-item.selected {
+            background: #e4f1fc;
+        }
+
+        .menu-icon {
+            font-size: 21px;
+        }
+
+        .post-btn {
+            width: 90%;
+            border: none;
+            background: #0787ed;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 25px;
+            margin: 8px 5%;
+            cursor: pointer;
+        }
+
+        .profile-small {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #edf6fd;
+            padding: 9px;
+            margin-top: 18px;
+            border-radius: 8px;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            background: #07488d;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .profile-small strong {
+            display: block;
+        }
+
+        .profile-small span {
+            color: #6480a0;
+            font-size: 14px;
+        }
+
+        /* ================= FEED ================= */
+
+        .feed {
+            border-right: 1px solid #dce7ef;
+        }
+
+        .feed-title {
+            font-size: 21px;
+            font-weight: bold;
+            padding: 17px 22px;
+        }
+
+        .post-box {
+            margin: 0 20px 8px;
+            border: 1px solid #d9e5ee;
+            border-radius: 8px;
+            min-height: 84px;
+            padding: 13px;
+            color: #66809c;
+            position: relative;
+        }
+
+        .post-button {
+            position: absolute;
+            right: 7px;
+            bottom: 7px;
+            background: #0787ed;
+            color: white;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tweet {
+            border-top: 1px solid #dce7ef;
+            padding: 13px 25px;
+            display: flex;
+            gap: 13px;
+        }
+
+        .tweet-content {
+            flex: 1;
+        }
+
+        .tweet-name {
+            font-weight: bold;
+            color: #173f70;
+        }
+
+        .tweet-handle {
+            color: #758ca5;
+            font-size: 14px;
+        }
+
+        .tweet-text {
+            margin-top: 6px;
+            color: #173f70;
+            line-height: 1.4;
+        }
+
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            max-width: 620px;
+            margin-top: 13px;
+            color: #496b8d;
+        }
+
+        .tweet-actions span {
+            cursor: pointer;
+        }
+
+        .tweet-actions span:hover {
+            color: #0787ed;
+        }
+
+        /* ================= RIGHT SIDEBAR ================= */
+
+        .right-sidebar {
+            padding: 15px 15px;
+        }
+
+        .search {
+            width: 100%;
+            border: none;
+            background: #e8f3fc;
+            padding: 11px 15px;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .right-card {
+            margin-top: 15px;
+            background: #edf6fd;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .right-card h2 {
+            font-size: 19px;
+            margin-bottom: 12px;
+            color: #173f70;
+        }
+
+        .trend {
+            margin: 12px 0;
+        }
+
+        .trend small {
+            color: #7389a0;
+        }
+
+        .trend strong {
+            display: block;
+            margin-top: 3px;
+            color: #123f76;
+        }
+
+        .follow-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 13px 0;
+        }
+
+        .follow-info {
+            flex: 1;
+        }
+
+        .follow-info strong {
+            display: block;
+        }
+
+        .follow-info span {
+            color: #7289a2;
+            font-size: 14px;
+        }
+
+        .follow-btn {
+            background: #07488d;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+            .social {
+                grid-template-columns: 220px 1fr;
+            }
+
+            .right-sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .portfolio-nav {
+                gap: 15px;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+
+            .education {
+                grid-template-columns: 1fr;
+            }
+
+            .social {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .feed {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= PORTFOLIO HEADER ================= -->
+
+    <header class="header">
+        <h1>Vijay V</h1>
+        <p>B.Tech Information Technology Student</p>
+        <p>Full Stack Web Development Enthusiast</p>
+    </header>
+
+    <!-- ================= PORTFOLIO NAV ================= -->
+
+    <nav class="portfolio-nav">
+        <a href="#about" class="active">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+        <h2>About Me</h2>
+
+        <p>
+            Hi, I'm Vijay V, a B.Tech Information Technology student
+            with an interest in Full Stack Web Development.
+        </p>
+
+        <p>
+            I enjoy learning new technologies and creating simple
+            and useful web applications.
+        </p>
+
+        <p>
+            I have basic knowledge of programming, web development
+            and database technologies.
+        </p>
+
+        <p>
+            I am interested in improving my technical and problem-solving skills.
+        </p>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+
+    <section class="education" id="education">
+
+        <div class="education-card">
+            <div class="education-icon">🎓</div>
+
+            <div>
+                <h3>B.Tech Information Technology</h3>
+                <p>Currently pursuing B.Tech IT</p>
+            </div>
+        </div>
+
+        <div class="education-card">
+            <div class="education-icon">🎓</div>
+
+            <div>
+                <h3>Higher Secondary Education</h3>
+                <p>HSC Completed</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= SOCIAL MEDIA AREA ================= -->
+
+    <section class="social">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">V</div>
+
+            <div class="menu-item selected">
+                <span class="menu-icon">🏠</span>
+                <span>Home</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">⌕</span>
+                <span>Explore</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">🔔</span>
+                <span>Notifications</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">✉</span>
+                <span>Messages</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">🔖</span>
+                <span>Bookmarks</span>
+            </div>
+
+            <div class="menu-item">
+                <span class="menu-icon">👤</span>
+                <span>Profile</span>
+            </div>
+
+            <button class="post-btn" onclick="createPost()">
+                Post
+            </button>
+
+            <div class="profile-small">
+                <div class="avatar">VV</div>
+
+                <div>
+                    <strong>Vijay V</strong>
+                    <span>@vijayy</span>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN FEED ================= -->
+
+        <main class="feed">
+
+            <div class="feed-title">
+                Home
+            </div>
+
+            <div class="post-box">
+                What's happening?
+
+                <button class="post-button" onclick="createPost()">
+                    Post
+                </button>
+            </div>
+
+
+            <!-- POST 1 -->
+
+            <article class="tweet">
+
+                <div class="avatar">
+                    VV
+                </div>
+
+                <div class="tweet-content">
+
+                    <div>
+                        <span class="tweet-name">Vijay V</span>
+                        <span class="tweet-handle">
+                            @vijayy · 2h
+                        </span>
+                    </div>
+
+                    <p class="tweet-text">
+                        Learning Full Stack Web Development and building
+                        new projects! 💻 🚀
+                    </p>
+
+                    <div class="tweet-actions">
+                        <span>💬 5</span>
+                        <span>🔁 8</span>
+                        <span>♡ 20</span>
+                        <span>↗ Share</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- POST 2 -->
+
+            <article class="tweet">
+
+                <div class="avatar">
+                    VV
+                </div>
+
+                <div class="tweet-content">
+
+                    <div>
+                        <span class="tweet-name">Vijay V</span>
+                        <span class="tweet-handle">
+                            @vijayy · 5h
+                        </span>
+                    </div>
+
+                    <p class="tweet-text">
+                        Working on my web development laboratory
+                        project today! ✨
+                    </p>
+
+                    <div class="tweet-actions">
+                        <span>💬 3</span>
+                        <span>🔁 6</span>
+                        <span>♡ 15</span>
+                        <span>↗ Share</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- POST 3 -->
+
+            <article class="tweet">
+
+                <div class="avatar">
+                    VV
+                </div>
+
+                <div class="tweet-content">
+
+                    <div>
+                        <span class="tweet-name">Vijay V</span>
+                        <span class="tweet-handle">
+                            @vijayy · 1d
+                        </span>
+                    </div>
+
+                    <p class="tweet-text">
+                        Small progress every day leads to big results. 💙
+                    </p>
+
+                    <div class="tweet-actions">
+                        <span>💬 7</span>
+                        <span>🔁 10</span>
+                        <span>♡ 25</span>
+                        <span>↗ Share</span>
+                    </div>
+
+                </div>
+            </article>
+
+        </main>
+
+
+        <!-- ================= RIGHT SIDEBAR ================= -->
+
+        <aside class="right-sidebar">
+
+            <input
+                class="search"
+                type="text"
+                placeholder="🔍  Search"
+                onkeyup="searchPosts(this.value)"
+            >
+
+            <div class="right-card">
+
+                <h2>What's happening</h2>
+
+                <div class="trend">
+                    <small>Trending in India</small>
+                    <strong>#WebDevelopment</strong>
+                </div>
+
+                <div class="trend">
+                    <small>Technology · Trending</small>
+                    <strong>Full Stack Development</strong>
+                </div>
+
+                <div class="trend">
+                    <small>Trending</small>
+                    <strong>#AI</strong>
+                </div>
+
+            </div>
+
+
+            <div class="right-card">
+
+                <h2>Who to follow</h2>
+
+                <div class="follow-user">
+
+                    <div class="avatar">
+                        VV
+                    </div>
+
+                    <div class="follow-info">
+                        <strong>Vijay V</strong>
+                        <span>@vijayy</span>
+                    </div>
+
+                    <button class="follow-btn"
+                            onclick="followUser(this)">
+                        Follow
+                    </button>
+
+                </div>
+
+
+                <div class="follow-user">
+
+                    <div class="avatar">
+                        VV
+                    </div>
+
+                    <div class="follow-info">
+                        <strong>Tech Community</strong>
+                        <span>@techcommunity</span>
+                    </div>
+
+                    <button class="follow-btn"
+                            onclick="followUser(this)">
+                        Follow
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function createPost() {
+
+            const text = prompt("What's happening?");
+
+            if (text && text.trim() !== "") {
+
+                const feed = document.querySelector(".feed");
+
+                const post = document.createElement("article");
+
+                post.className = "tweet";
+
+                post.innerHTML = `
+                    <div class="avatar">VV</div>
+
+                    <div class="tweet-content">
+
+                        <div>
+                            <span class="tweet-name">Vijay V</span>
+                            <span class="tweet-handle">
+                                @vijayy · now
+                            </span>
+                        </div>
+
+                        <p class="tweet-text">
+                            ${escapeHTML(text)}
+                        </p>
+
+                        <div class="tweet-actions">
+                            <span>💬 0</span>
+                            <span>🔁 0</span>
+                            <span>♡ 0</span>
+                            <span>↗ Share</span>
+                        </div>
+
+                    </div>
+                `;
+
+                feed.appendChild(post);
+            }
+        }
+
+
+        function followUser(button) {
+
+            if (button.innerText === "Follow") {
+
+                button.innerText = "Following";
+                button.style.background = "#6d8298";
+
+            } else {
+
+                button.innerText = "Follow";
+                button.style.background = "#07488d";
+
+            }
+        }
+
+
+        function searchPosts(value) {
+
+            const posts = document.querySelectorAll(".tweet");
+
+            value = value.toLowerCase();
+
+            posts.forEach(post => {
+
+                const text = post.innerText.toLowerCase();
+
+                if (text.includes(value)) {
+                    post.style.display = "flex";
+                } else {
+                    post.style.display = "none";
+                }
+
+            });
+        }
+
+
+        function escapeHTML(text) {
+
+            const div = document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+        }
+
+
+        // Portfolio navigation active state
+
+        const navLinks = document.querySelectorAll(".portfolio-nav a");
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navLinks.forEach(item =>
+                    item.classList.remove("active")
+                );
+
+                this.classList.add("active");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
